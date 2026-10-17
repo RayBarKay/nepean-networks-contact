@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepean Network Broadband SA — SD-WAN that fixes the last mile</title>
+<meta name="description" content="Smarter connectivity over bigger pipes. SD-WAN tuned for South Africa: load-shedding resilience, cable-theft failover, 1,600 voice endpoints proven since 2019. Free last-mile assessment.">
+<style>
+  :root{
+    --ink:#0d1b2a; --navy:#13293d; --deep:#0e3a4f;
+    --accent:#0e7490; --accent2:#0891b2;
+    --gold:#d4a72c; --gold-d:#7c5e10;
+    --bg:#f5f8fa; --card:#ffffff; --line:#dce5ec;
+    --green:#0f9d58; --green-b:#e8f8ef;
+    --body:#3a4f63; --mut:#5a6f82; --lg:#b9cbda;
+    --faint:#8fa6ba;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:72px 0}
+  .tight{padding:44px 0}
+
+  h1,h2,h3,h4{color:var(--navy);line-height:1.15;font-weight:700}
+  h1{font-size:clamp(30px,5vw,52px)}
+  h2{font-size:clamp(24px,3.4vw,34px);margin-bottom:12px}
+  h3{font-size:18px;margin-bottom:6px}
+  .kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+  .lead{font-size:17px;color:var(--body);max-width:720px}
+  .muted{color:var(--mut)}
+  .gold{color:var(--gold)}
+
+  .btn{display:inline-block;font-weight:600;font-size:15px;padding:13px 26px;border-radius:9px;border:none;cursor:pointer;transition:.18s}
+  .btn-gold{background:var(--gold);color:#2b2108}
+  .btn-gold:hover{background:#e5b83e;transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .btn-line{background:#fff;color:var(--accent);border:1.5px solid var(--accent)}
+  .btn-line:hover{background:var(--accent);color:#fff}
+  .btn-sm{padding:9px 18px;font-size:14px}
+
+  /* ── Nav ── */
+  header{position:sticky;top:0;z-index:50;background:rgba(13,27,42,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:17px}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--gold));display:grid;place-items:center;font-size:16px}
+  .navlinks{display:flex;align-items:center;gap:26px}
+  .navlinks a{color:#c7d6e2;font-size:14.5px;font-weight:500}
+  .navlinks a:hover{color:#fff}
+  .nav-cta{margin-left:6px}
+  .burger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+
+  /* ── Hero ── */
+  .hero{background:linear-gradient(135deg,#0d1b2a 0%,#13293d 55%,#0e3a4f 100%);color:#fff;padding:96px 0 88px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-80px;bottom:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(14,116,144,.35),transparent 70%)}
+  .hero .kicker{color:var(--gold)}
+  .hero h1{color:#fff;max-width:820px}
+  .hero p{color:var(--lg);max-width:640px;margin:20px 0 30px;font-size:18px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#c7d6e2;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:8px 14px;border-radius:30px}
+  .badge b{color:var(--gold)}
+
+  .grid{display:grid;gap:20px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+
+  .card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:24px}
+  .card .ic{font-size:28px;margin-bottom:12px}
+  .card h3{color:var(--navy)}
+  .card p{font-size:14px;color:var(--body);margin-top:6px}
+
+  .stat{background:linear-gradient(180deg,#eef6f9,#fff);border:1.5px solid var(--line);border-radius:14px;padding:22px 18px;text-align:center}
+  .stat b{display:block;font-size:34px;color:var(--accent);font-weight:750;margin-bottom:4px}
+  .stat span{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
+
+  .callout{padding:18px 22px;border-left:4px solid var(--gold);background:#fffbef;border-radius:0 12px 12px 0;font-size:15px;color:#5a4a10;margin-top:24px}
+  .callout.accent{border-color:var(--accent);background:#f0f9fc;color:var(--body)}
+  .callout.green{border-color:var(--green);background:var(--green-b);color:#14532d}
+  .callout b{font-weight:700}
+
+  .flow{display:flex;align-items:stretch;gap:0;margin:28px 0;flex-wrap:wrap}
+  .flow .node{flex:1;min-width:150px;border:2px solid var(--accent);border-radius:12px;padding:16px 14px;text-align:center;background:#f0f9fc}
+  .flow .node b{display:block;font-size:14px;color:var(--navy);margin-bottom:6px}
+  .flow .node small{color:var(--mut);font-size:11.5px;line-height:1.5;display:block}
+  .flow .arr{align-self:center;color:var(--accent);font-size:22px;padding:0 10px;font-weight:700}
+
+  .pill{display:inline-block;font-size:12px;font-weight:600;padding:6px 13px;border-radius:20px;background:#e0f2f7;color:var(--accent);margin:4px 5px 4px 0}
+  .pill.gold{background:#fef9e7;color:var(--gold-d)}
+  .pill.green{background:var(--green-b);color:#0a5c35}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+  .myth{padding:14px 18px;border-left:3px solid var(--gold);background:#fffbef;border-radius:0 10px 10px 0;font-size:14.5px;color:#5a4a10;margin-bottom:12px}
+  .myth .no{color:#9a3412;font-weight:700;display:block;margin-bottom:3px}
+  .myth p{font-size:13px;color:#6b5a2a;margin-top:4px}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:#eef6f9;font-weight:700;color:var(--navy)}
+  td.good{color:var(--green);font-weight:600}
+  td.bad{color:#b91c1c;font-weight:600}
+
+  /* ── Footer ── */
+  footer{background:#0d1b2a;color:var(--lg);padding:52px 0 34px;margin-top:20px}
+  footer a{color:#c7d6e2}
+  footer a:hover{color:#fff}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+  footer h4{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+  footer .brand{margin-bottom:12px}
+  footer p{font-size:14px;margin-bottom:8px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:22px;font-size:12.5px;color:var(--faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  /* ── WhatsApp ── */
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:.18s}
+  .wa-float:hover{transform:translateY(-2px) scale(1.05);background:#20bd5a}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+  .btn-wa{background:#25D366;color:#fff}
+  .btn-wa:hover{background:#20bd5a;transform:translateY(-1px)}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .g3,.g4{grid-template-columns:repeat(2,1fr)}
+    .split{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    section{padding:52px 0}
+  }
+  @media(max-width:560px){
+    .g2,.g3,.g4{grid-template-columns:1fr}
+    .form-grid{grid-template-columns:1fr}
+    .navlinks{display:none;position:absolute;top:64px;left:0;right:0;background:#0d1b2a;flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .navlinks.open{display:flex}
+    .navlinks .nav-cta{margin:6px 0 0}
+    .burger{display:block}
+  }
+  @media print{
+    header,.hero-actions,.nav-cta,.wa-float,.no-print{display:none!important}
+    body{background:#fff}
+    .hero{background:#fff;color:#13293d}
+    .hero h1{color:#13293d}.hero p{color:#3a4f63}.hero .kicker{color:var(--accent)}.badge{border-color:var(--line);color:var(--body)}
+    section{padding:28px 0;break-inside:avoid}
+    .reveal{opacity:1;transform:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><span class="mark">🌀</span> Nepean Network</div>
+      <div class="navlinks" id="navlinks">
+        <a href="#problem">Why it fails</a>
+        <a href="#solution">The solution</a>
+        <a href="#proof">Proof</a>
+        <a href="#cost">Business case</a>
+        <a href="#faq">FAQ</a>
+        <a href="#assess" class="btn btn-gold btn-sm nav-cta">Free last-mile assessment</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" style="padding:96px 0 88px">
+  <div class="wrap">
+    <div class="kicker">SD-WAN · Built for the South African last mile</div>
+    <h1>Your network is your business' nervous system. Stop patching it. Start flowing it.</h1>
+    <p>We bond your existing links — fibre, LTE, FWA — into one resilient, managed network. No bigger pipe. No new hardware budget. Just the last mile, fixed.</p>
+    <div class="hero-actions">
+      <a href="#assess" class="btn btn-gold">Book a free last-mile assessment →</a>
+      <a href="https://wa.me/27738165461?text=Hi%20Ray%2C%20I%27d%20like%20a%20free%20last-mile%20assessment" target="_blank" rel="noopener" class="btn btn-wa">💬 WhatsApp us</a>
+      <a href="#proof" class="btn btn-ghost">See the proof</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge"><b>1,600</b>&nbsp;voice endpoints, zero issues since 2019</span>
+      <span class="badge"><b>2,000+</b>&nbsp;multi-site deployments</span>
+      <span class="badge">IBM Beacon Award · 2020</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROBLEM ═══════════ -->
+<section id="problem">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">The last-mile problem</div>
+      <h2>The weakest link isn't your data centre. It's the 2&nbsp;km to your branch.</h2>
+      <p class="lead">Load shedding, cable theft, FWA that swings from 20 to 200&nbsp;ms — none of it is fixed by buying more bandwidth. It's fixed by how traffic is balanced, protected, and made to survive across the links you already have.</p>
+    </div>
+
+    <div class="grid g3" style="margin-top:36px">
+      <div class="card reveal"><div class="ic">⚡</div><h3>Load shedding</h3><p>Every 4-stage cycle stresses FWA base stations, LTE handoffs and PoE switches. Your network degrades on the cycle.</p></div>
+      <div class="card reveal"><div class="ic">✂️</div><h3>Cable theft</h3><p>In some regions 40%+ of outages are copper or fibre theft. A single-link site goes dark for hours — or days.</p></div>
+      <div class="card reveal"><div class="ic">📡</div><h3>Unreliable last mile</h3><p>FWA and LTE are "best effort". Fine for streaming. Not for POS, ERP, or a call centre.</p></div>
+      <div class="card reveal"><div class="ic">💸</div><h3>The MPLS tax</h3><p>Private circuits cost 2–3× comparable broadband — and still fail on the last mile the ISP can't fix for you.</p></div>
+      <div class="card reveal"><div class="ic">🏢</div><h3>Multi-site chaos</h3><p>50 branches, 5 ISPs, 3 firewall brands, 20 config methods. Your IT team becomes a dispatch office.</p></div>
+      <div class="card reveal"><div class="ic">📊</div><h3>Invisible drops</h3><p>Packet loss, jitter and session drops hide in the noise. Without per-packet visibility, you react to complaints.</p></div>
+    </div>
+
+    <div class="callout reveal" style="margin-top:36px">
+      <b>The uptime math no one runs for you:</b> 20 components at 99.9% + one interconnection at 99% equals only <b>87% site uptime</b> — roughly 87 days of downtime a year. Bond two independent chains and it jumps to <b>98%</b>. That's the whole game.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SOLUTION ═══════════ -->
+<section id="solution" style="background:#fff">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">What SD-WAN actually is</div>
+      <h2>Not a routing trick. A different architecture for the last mile.</h2>
+      <p class="lead">SD-WAN bonds your links so both work at once, balances traffic per packet, and keeps sessions alive when a link drops. That's the Jet-Plane principle: no one boards a plane with one engine.</p>
+    </div>
+
+    <div class="flow reveal">
+      <div class="node"><b>1 · Dual last-mile links</b><small>Fibre + LTE/FWA<br>Any ISP · both live</small></div>
+      <div class="arr">➔</div>
+      <div class="node"><b>2 · SD-WAN Edge Node</b><small>Bonding · per-packet<br>balancing · Elastic IP</small></div>
+      <div class="arr">➔</div>
+      <div class="node"><b>3 · Hub &amp; Spoke Core</b><small>Cloud orchestrator<br>NAPAfrica peering</small></div>
+      <div class="arr">➔</div>
+      <div class="node"><b>4 · Antares Portal</b><small>Zero-touch setup<br>Full-stack management</small></div>
+      <div class="arr">➔</div>
+      <div class="node"><b>5 · Illuminate AI</b><small>Traffic analytics<br>Anomaly &amp; threat alerts</small></div>
+    </div>
+
+    <div class="split" style="margin-top:44px">
+      <div class="reveal">
+        <h3>Four myths, retired</h3>
+        <div class="myth"><span class="no">✗ "SD-WAN is just smart routing."</span><p>It's per-packet session architecture with congestion control and Elastic IP continuity. Routing is one layer; the system is the value.</p></div>
+        <div class="myth"><span class="no">✗ "You need FEC for clear voice."</span><p>Proactive congestion management + smart reordering delivers crystal-clear voice without FEC's bandwidth tax.</p></div>
+        <div class="myth"><span class="no">✗ "You're locked to one vendor."</span><p>ISP-agnostic (fibre, LTE, FWA, satellite, MPLS) and firewall-agnostic (Cisco, Fortinet, Palo Alto).</p></div>
+        <div class="myth"><span class="no">✗ "It needs expensive ASIC hardware."</span><p>Software-driven enhancement on commodity hardware, prioritising resilience and session continuity.</p></div>
+      </div>
+      <div class="reveal">
+        <div class="card" style="background:#f0f9fc;border-color:var(--accent)">
+          <h3>What you actually get</h3>
+          <div style="margin-top:14px">
+            <span class="pill">Link bonding — both live</span>
+            <span class="pill">Per-packet balancing</span>
+            <span class="pill">Elastic IP / session continuity</span>
+            <span class="pill">Application-aware QoS</span>
+            <span class="pill">Zero-touch provisioning</span>
+            <span class="pill">Centralised management</span>
+            <span class="pill">NFV security</span>
+            <span class="pill">IX peering</span>
+            <span class="pill gold">No new hardware budget</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROOF ═══════════ -->
+<section id="proof">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Proof, not adjectives</div>
+      <h2>The numbers that matter</h2>
+    </div>
+    <div class="grid g4" style="margin-top:32px">
+      <div class="stat reveal"><b>1,600</b><span>voice endpoints, zero issues since 2019</span></div>
+      <div class="stat reveal"><b>40%</b><span>fewer IT tickets (20-branch financial firm)</span></div>
+      <div class="stat reveal"><b>30%</b><span>connectivity cost cut (50-site retail chain)</span></div>
+      <div class="stat reveal"><b>~50%</b><span>lower circuit cost vs MPLS</span></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card reveal"><div class="ic">🏦</div><h3>BFS &amp; Call Centres</h3><p>1,600 voice endpoints across 12 sites with zero voice issues since 2019. A 20-branch financial firm cut IT tickets by 40%. VoIP quality is the headline; uptime is the subtext.</p></div>
+      <div class="card reveal"><div class="ic">🛒</div><h3>Retail &amp; Fuel</h3><p>An unstable 10 Mbps microwave turned into continuous POS and fuel management. A 50-site retail chain cut connectivity costs 30% and sped up POS — with no bandwidth upgrade.</p></div>
+      <div class="card reveal"><div class="ic">🌾</div><h3>Remote &amp; Agri</h3><p>24/7 ERP across city and rural sites, harvest-critical. Where the last mile is a 40 km dirt road and the only link is LTE, SD-WAN makes it work.</p></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:20px">
+      <div class="card reveal">
+        <div class="ic">🛡️</div>
+        <h3>Security without a hardware line item</h3>
+        <p>WireGuard (modern AEAD, not 1990s IPSEC), management-plane isolation, and NFV firewalls (Clavister, OPNsense) managed centrally. Traffic segmentation + encryption supports PoPIA and PCI DSS without per-site appliances.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🌐</div>
+        <h3>NAPAfrica peering</h3>
+        <p>Direct on-ramps to AWS, Azure, Google, Cloudflare and Akamai in Johannesburg — plus a springboard into Namibia, Botswana, Zimbabwe and Mozambique. Lower latency, lower transit cost, regional reach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COST ═══════════ -->
+<section id="cost" style="background:#fff">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">The business case</div>
+      <h2>For the CFO in the room</h2>
+      <p class="lead">You can run broadband at roughly half the cost of MPLS and elevate it to business grade with QoS and bonding. No extra hardware. No vendor lock-in. And you only commit after the pilot proves the ROI in <i>your</i> environment.</p>
+    </div>
+    <div class="split" style="margin-top:32px">
+      <div class="reveal">
+        <table>
+          <tr><th>Cost factor</th><th>MPLS</th><th>SD-WAN + broadband</th></tr>
+          <tr><td>Circuit cost / site / month</td><td class="bad">2–3× higher</td><td class="good">~50% lower</td></tr>
+          <tr><td>Security hardware</td><td class="bad">Per-site appliance</td><td class="good">NFV / software</td></tr>
+          <tr><td>Management effort</td><td class="bad">Per-site config</td><td class="good">Central + ZTP</td></tr>
+          <tr><td>Scaling cost</td><td class="bad">New circuit per site</td><td class="good">Broadband + node</td></tr>
+        </table>
+      </div>
+      <div class="reveal">
+        <div class="card" style="background:var(--green-b);border-color:var(--green)">
+          <h3 style="color:#0a5c35">Phased deployment</h3>
+          <p style="margin-top:8px">Start with one branch. Pilot. Measure. Then scale. Zero-touch provisioning means no truck rolls — 50 sites have gone live in a single day. You don't commit the full budget until the pilot proves the ROI on your links.</p>
+        </div>
+        <div class="callout green" style="margin-top:18px">
+          <b>Honest caveat:</b> if you're a single site with one good fibre link and no VoIP, you may not need this. If you're multi-site, voice-dependent, or your last mile is anything less than pristine — this is the conversation to have.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Questions we hear most</div>
+      <h2>Short answers</h2>
+    </div>
+    <div class="grid g2" style="margin-top:28px">
+      <div class="card reveal"><h3>Will it work with our existing firewalls?</h3><p>Cisco, Fortinet, Palo Alto — Nepean integrates, it doesn't replace. The SD-WAN node sits alongside your security stack, not instead of it.</p></div>
+      <div class="card reveal"><h3>How long does a multi-site rollout take?</h3><p>Zero-touch provisioning means no on-site techs. Typical 10-site rollout: 2–3 weeks including testing. We've brought 50 sites online in a day.</p></div>
+      <div class="card reveal"><h3>What happens during a full power outage?</h3><p>UPS keeps the edge node alive. When power returns, sessions resume via Elastic IP — no reconnection, no dropped calls. It's designed for the return, not just the failure.</p></div>
+      <div class="card reveal"><h3>Can we try it on one site first?</h3><p>That's exactly how we recommend it. Free last-mile assessment → pilot one branch → measure → scale. No commitment until it proves the ROI.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ASSESS / CONTACT ═══════════ -->
+<section id="assess" class="no-print" style="background:linear-gradient(135deg,#0e3a4f,#0d1b2a);color:#fff">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px">
+      <div class="kicker" style="color:var(--gold)">Free · 45 minutes · no obligation</div>
+      <h2 style="color:#fff">Bring us your worst site.</h2>
+      <p style="color:var(--lg);max-width:640px">We run a last-mile assessment on your links, your applications and your numbers. You get a link-quality report, the 87%→98% uptime model, a TCO comparison, and a phased plan — on <b>your</b> infrastructure, not a case study.</p>
+      <div style="margin-top:28px">
+        <p style="font-size:15px"><b style="color:var(--gold)">Ronald Bartels</b> · Nepean Network Broadband SA</p>
+        <p style="margin-top:6px"><a href="mailto:ronald@nepeannetworks.com" style="color:#fff">ronald@nepeannetworks.com</a></p>
+        <p style="margin-top:6px"><a href="tel:+27738165461" style="color:#fff">📞 +27 73 816 5461</a></p>
+        <p style="margin-top:6px;font-size:14px;color:var(--faint)">LinkedIn · Instagram</p>
+      </div>
+      <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://wa.me/27738165461?text=Hi%20Ray%2C%20I%27d%20like%20a%20free%20last-mile%20assessment" target="_blank" rel="noopener" class="btn btn-wa">💬 WhatsApp us now</a>
+        <a href="tel:+27738165461" class="btn btn-ghost">Call +27 73 816 5461</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:#fff"><span class="mark">🌀</span> Nepean Network</div>
+        <p>Software-Defined WAN for the South African last mile. Built for load shedding, cable theft and FWA — proven across 2,000+ multi-site deployments.</p>
+        <p style="margin-top:12px;font-size:13px;color:var(--faint)">IBM Beacon Award — Best Infrastructure Services Solution · 2020</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="#problem">Why it fails</a></p>
+        <p><a href="#solution">The solution</a></p>
+        <p><a href="#proof">Proof</a></p>
+        <p><a href="#cost">Business case</a></p>
+        <p><a href="#faq">FAQ</a></p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p><a href="mailto:ronald@nepeannetworks.com">ronald@nepeannetworks.com</a></p>
+        <p><a href="https://wa.me/27738165461?text=Hi%20Ray%2C%20I%27d%20like%20a%20free%20last-mile%20assessment" target="_blank" rel="noopener">💬 WhatsApp — +27 73 816 5461</a></p>
+        <p><a href="#assess">Free last-mile assessment</a></p>
+        <p style="font-size:14px">LinkedIn · Instagram</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Nepean Network Broadband (Pty) Ltd — South Africa</span>
+      <span>The Tao of SD-WAN · smarter connectivity over bigger pipes</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+  // scroll reveal
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<!-- WhatsApp floating button — Ray: +27 73 816 5461 -->
+<a class="wa-float" href="https://wa.me/27738165461?text=Hi%20Ray%2C%20I%27d%20like%20a%20free%20last-mile%20assessment" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16.004 3C8.832 3 3 8.83 3 16c0 2.29.6 4.53 1.74 6.5L3 29l6.66-1.7A12.94 12.94 0 0 0 16 29c7.17 0 13-5.83 13-13S23.17 3 16.004 3zm0 23.5c-2.1 0-4.15-.56-5.95-1.62l-.42-.25-3.95 1 1.04-3.85-.27-.43A10.45 10.45 0 0 1 5.5 16c0-5.79 4.71-10.5 10.5-10.5 5.79 0 10.5 4.71 10.5 10.5 0 5.79-4.71 10.5-10.5 10.5zm5.75-7.87c-.32-.16-1.88-.93-2.17-1.03-.29-.11-.5-.16-.71.16-.21.32-.82 1.03-1 1.24-.19.21-.37.24-.68.08-.32-.16-1.34-.5-2.55-1.57-.94-.84-1.58-1.88-1.77-2.19-.18-.32-.02-.49.14-.65.15-.14.32-.37.48-.55.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.54-.71-.55l-.6-.01c-.21 0-.55.08-.84.4-.29.32-1.1 1.08-1.1 2.63s1.13 3.06 1.29 3.27c.16.21 2.24 3.42 5.43 4.8.76.33 1.36.52 1.83.67.77.24 1.47.21 2.02.13.61-.09 1.88-.77 2.14-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/></svg>
+</a>
+</body>
+</html>
